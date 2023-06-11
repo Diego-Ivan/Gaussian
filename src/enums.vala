@@ -5,6 +5,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+public enum Gaussian.DistributionType {
+    CONTINUOUS,
+    DISCRETE;
+}
+
 public enum Gaussian.DiscreteMode {
     UNDER_OR_EQUAL,
     BETWEEN,
@@ -12,7 +17,7 @@ public enum Gaussian.DiscreteMode {
     EQUAL_TO;
 }
 
-public enum Gaussian.ContinousMode {
+public enum Gaussian.ContinuousMode {
     UNDER,
     BETWEEN,
     OVER;

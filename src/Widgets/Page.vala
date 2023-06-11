@@ -10,6 +10,11 @@ public abstract class Gaussian.Page : Gtk.Box {
     [GtkChild]
     private unowned ResultsList results_list;
 
+    public DistributionType distribution_type { get; construct; }
+
     // Abstract Methods
     public abstract GenericArray<Result> get_results ();
+
+    construct {
+    }
 }

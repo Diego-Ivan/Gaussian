@@ -1,6 +1,7 @@
 gaussian_sources = [
   'main.vala',
   'application.vala',
+  'enums.vala',
   'window.vala',
   'MathUtils.vala',
 
@@ -10,6 +11,7 @@ gaussian_sources = [
   'Widgets/ResultsList.vala',
 
   'Models/Result.vala',
+  'Models/DistributionTypes.vala',
 ]
 
 cc = meson.get_compiler('c')

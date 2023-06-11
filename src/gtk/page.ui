@@ -7,6 +7,10 @@
     <property name="spacing">12</property>
 
     <child>
+      <object class="AdwPreferencesGroup" id="data_group"></object>
+    </child>
+
+    <child>
       <object class="GtkButton">
         <property name="label" translatable="yes">Execute</property>
         <style>
