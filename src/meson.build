@@ -5,7 +5,11 @@ gaussian_sources = [
   'MathUtils.vala',
 
   'Widgets/BinomialPage.vala',
+  'Widgets/Page.vala',
   'Widgets/NumberRow.vala',
+  'Widgets/ResultsList.vala',
+
+  'Models/Result.vala',
 ]
 
 cc = meson.get_compiler('c')
