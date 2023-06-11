@@ -1,6 +1,6 @@
-/* window.vala
+/* MathUtils.vala
  *
- * Copyright 2023 Diego Iván
+ * Copyright 2023 Diego Iván <diegoivan.mae@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,15 +18,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace Gaussian {
-    [GtkTemplate (ui = "/io/github/diegoivan/gaussian/window.ui")]
-    public class Window : Adw.ApplicationWindow {
-        public Window (Gtk.Application app) {
-            Object (application: app);
+namespace Gaussian.MathUtils {
+    public long factorial (int number)
+        requires (number >= 0)
+    {
+        long factorial = 1l;
+        for (int i = number; i > 0; i--) {
+            factorial *= i;
         }
-
-        static construct {
-            typeof(BinomialPage).ensure ();
-        }
+        return factorial;
     }
 }

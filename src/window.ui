@@ -19,12 +19,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkLabel" id="label">
-            <property name="label">Hello, World!</property>
-            <property name="vexpand">true</property>
-            <style>
-              <class name="title-1"/>
-            </style>
+          <object class="GaussianBinomialPage" id="binomial_page">
           </object>
         </child>
       </object>
