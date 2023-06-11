@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=gaussian
+Exec=gaussian
+Icon=io.github.diegoivan.gaussian
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
