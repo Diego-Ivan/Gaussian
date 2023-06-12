@@ -10,7 +10,7 @@ public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
     [GtkChild]
     private unowned ResultsList results_list;
     [GtkChild]
-    private unowned DataList data_list;
+    protected unowned DataList data_list;
     [GtkChild]
     private unowned Gtk.Box content_box;
 
@@ -19,7 +19,7 @@ public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
         get {
             return _variable_type;
         }
-        construct {
+        set {
             _variable_type = value;
             data_list.variable_type = value;
         }
@@ -29,7 +29,7 @@ public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
     public abstract GenericArray<Result> get_results ();
 
     public void add_child (Gtk.Builder builder, Object object, string? type) {
-        if (!(object is Gtk.Widget)) {
+        if (!(object is Gtk.Widget) || content_box == null) {
             base.add_child (builder, object, type);
             return;
         }

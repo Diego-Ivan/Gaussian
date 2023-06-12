@@ -15,6 +15,8 @@ public class Gaussian.DataList : Gtk.Box {
     private unowned NumberRow inferior_row;
     [GtkChild]
     private unowned NumberRow superior_row;
+    [GtkChild]
+    private unowned Adw.ExpanderRow boundaries_expander;
 
     public bool uses_boundaries { get; private set; }
 
@@ -23,7 +25,7 @@ public class Gaussian.DataList : Gtk.Box {
         get {
             return _variable_type;
         }
-        set construct {
+        set {
             _variable_type = value;
             mode_selection.model = new VariableTypeListModel (variable_type);
         }
@@ -56,5 +58,6 @@ public class Gaussian.DataList : Gtk.Box {
     [GtkCallback]
     private void on_mode_selection_changed () {
         uses_boundaries = selected_mode.require_boundaries;
+        boundaries_expander.expanded = uses_boundaries;
     }
 }

@@ -2,64 +2,23 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
-  <template class="GaussianBinomialPage" parent="GtkBox">
-    <property name="orientation">vertical</property>
-    <property name="spacing">12</property>
+  <template class="GaussianBinomialPage" parent="GaussianPage">
+    <property name="variable-type">discrete</property>
 
     <child>
       <object class="AdwPreferencesGroup">
-        <property name="title">Data</property>
-
-        <child>
-          <object class="GaussianNumberRow" id="x_row">
-            <property name="title">Number of Successes</property>
-          </object>
-        </child>
-
         <child>
           <object class="GaussianNumberRow" id="n_row">
-            <property name="title">Number of Trials</property>
+            <property name="title">Number of Trials (n)</property>
           </object>
         </child>
 
         <child>
           <object class="GaussianNumberRow" id="p_row">
-            <property name="title">Probability of Success</property>
-            <property name="step">0.1</property>
+            <property name="title">Probability of Success (p)</property>
             <property name="upper">1</property>
+            <property name="step">0.1</property>
             <property name="digits">5</property>
-            <property name="lower">0</property>
-          </object>
-        </child>
-      </object>
-    </child>
-
-    <child>
-      <object class="GtkButton" id="execute_button">
-        <property name="label">Execute</property>
-        <property name="halign">center</property>
-        <property name="hexpand">true</property>
-        <signal name="clicked" swapped="no" handler="on_execute_button_clicked"/>
-        <style>
-          <class name="pill"/>
-          <class name="suggested-action"/>
-        </style>
-      </object>
-    </child>
-
-    <child>
-      <object class="AdwPreferencesGroup" id="results_page">
-        <property name="title">Results</property>
-        <child>
-          <object class="AdwActionRow">
-            <property name="title">P(x)</property>
-            <child type="suffix">
-              <object class="GtkLabel" id="result_label">
-                <style>
-                  <class name="dim-label"/>
-                </style>
-              </object>
-            </child>
           </object>
         </child>
       </object>
