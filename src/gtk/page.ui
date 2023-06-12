@@ -2,29 +2,43 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
-  <template class="GaussianPage" parent="GtkBox">
-    <property name="orientation">vertical</property>
-    <property name="spacing">12</property>
+  <template class="GaussianPage" parent="AdwBin">
 
     <child>
-      <object class="GaussianDataList" id="data_list"></object>
-    </child>
+      <object class="GtkScrolledWindow">
+        <child>
+          <object class="AdwClamp">
+            <child>
+              <object class="GtkBox" id="content_box">
+                <property name="orientation">vertical</property>
+                <property name="spacing">12</property>
 
-    <child>
-      <object class="GtkButton" id="execute_button">
-        <property name="label" translatable="yes">Execute</property>
-        <signal name="clicked" handler="on_execute_button_clicked" swapped="no"></signal>
-        <style>
-          <class name="pill"/>
-          <class name="suggested-action"/>
-        </style>
+                <child>
+                  <object class="GaussianDataList" id="data_list"></object>
+                </child>
+
+                <child>
+                  <object class="GtkButton" id="execute_button">
+                    <property name="label" translatable="yes">Execute</property>
+                    <signal name="clicked" handler="on_execute_button_clicked" swapped="no"></signal>
+                    <style>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GaussianResultsList" id="results_list">
+                    <property name="visible">false</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
 
-    <child>
-      <object class="GaussianResultsList" id="results_list">
-        <property name="visible">false</property>
-      </object>
-    </child>
   </template>
 </interface>

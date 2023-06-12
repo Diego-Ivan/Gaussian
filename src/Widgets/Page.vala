@@ -6,11 +6,13 @@
  */
 
 [GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/page.ui")]
-public abstract class Gaussian.Page : Gtk.Box, Gtk.Buildable {
+public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
     [GtkChild]
     private unowned ResultsList results_list;
     [GtkChild]
     private unowned DataList data_list;
+    [GtkChild]
+    private unowned Gtk.Box content_box;
 
     private VariableType _variable_type;
     public VariableType variable_type {
@@ -32,7 +34,7 @@ public abstract class Gaussian.Page : Gtk.Box, Gtk.Buildable {
             return;
         }
 
-        insert_child_after ((Gtk.Widget) object, data_list);
+        content_box.insert_child_after ((Gtk.Widget) object, data_list);
     }
 
     [GtkCallback]
