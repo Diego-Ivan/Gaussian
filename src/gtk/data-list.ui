@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GaussianDataList" parent="GtkBox">
+    <child>
+      <object class="AdwPreferencesGroup" id="boundaries_group">
+        <property name="title" translatable="yes">Successes</property>
+        <child>
+          <object class="AdwComboRow" id="mode_selection">
+            <property name="title" translatable="yes">Mode</property>
+            <property name="expression">
+              <lookup type="GaussianVariableTypeMode" name="name"/>
+            </property>
+            <signal name="notify::selected" handler="on_mode_selection_changed" swapped="no"/>
+          </object>
+        </child>
+
+        <child>
+          <object class="GaussianNumberRow" id="x_row">
+            <property name="visible" bind-source="GaussianDataList" bind-property="uses-boundaries" bind-flags="sync-create | invert-boolean"/>
+            <property name="upper">10000</property>
+            <property name="title" translatable="yes">Number of Successes (x)</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwExpanderRow" id="boundaries_expander">
+            <property name="visible" bind-source="GaussianDataList" bind-property="uses-boundaries" bind-flags="sync-create"/>
+            <property name="title" translatable="yes">Boundaries</property>
+
+            <child>
+              <object class="GaussianNumberRow" id="inferior_row">
+                <property name="title" translatable="yes">Inferior</property>
+              </object>
+            </child>
+
+            <child>
+              <object class="GaussianNumberRow" id="superior_row">
+                <property name="title" translatable="yes">Superior</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

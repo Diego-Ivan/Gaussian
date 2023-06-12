@@ -9,6 +9,7 @@ gaussian_sources = [
   'Widgets/Page.vala',
   'Widgets/NumberRow.vala',
   'Widgets/ResultsList.vala',
+  'Widgets/DataList.vala',
 
   'Models/Result.vala',
   'Models/DistributionTypes.vala',
