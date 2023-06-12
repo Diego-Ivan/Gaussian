@@ -16,8 +16,18 @@ public class Gaussian.DataList : Gtk.Box {
     [GtkChild]
     private unowned NumberRow superior_row;
 
-    public VariableType variable_type { get; construct; }
     public bool uses_boundaries { get; private set; }
+
+    private VariableType _variable_type;
+    public VariableType variable_type {
+        get {
+            return _variable_type;
+        }
+        set construct {
+            _variable_type = value;
+            mode_selection.model = new VariableTypeListModel (variable_type);
+        }
+    }
 
     public VariableTypeMode selected_mode {
         get {
@@ -41,10 +51,6 @@ public class Gaussian.DataList : Gtk.Box {
         get {
             return (int) superior_row.value;
         }
-    }
-
-    construct {
-        mode_selection.model = new VariableTypeListModel (variable_type);
     }
 
     [GtkCallback]

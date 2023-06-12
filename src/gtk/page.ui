@@ -7,12 +7,13 @@
     <property name="spacing">12</property>
 
     <child>
-      <object class="AdwPreferencesGroup" id="data_group"></object>
+      <object class="GaussianDataList" id="data_list"></object>
     </child>
 
     <child>
-      <object class="GtkButton">
+      <object class="GtkButton" id="execute_button">
         <property name="label" translatable="yes">Execute</property>
+        <signal name="clicked" handler="on_execute_button_clicked" swapped="no"></signal>
         <style>
           <class name="pill"/>
           <class name="suggested-action"/>

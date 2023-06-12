@@ -6,15 +6,43 @@
  */
 
 [GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/page.ui")]
-public abstract class Gaussian.Page : Gtk.Box {
+public abstract class Gaussian.Page : Gtk.Box, Gtk.Buildable {
     [GtkChild]
     private unowned ResultsList results_list;
+    [GtkChild]
+    private unowned DataList data_list;
 
-    public DistributionType distribution_type { get; construct; }
+    private VariableType _variable_type;
+    public VariableType variable_type {
+        get {
+            return _variable_type;
+        }
+        construct {
+            _variable_type = value;
+            data_list.variable_type = value;
+        }
+    }
 
     // Abstract Methods
     public abstract GenericArray<Result> get_results ();
 
-    construct {
+    public void add_child (Gtk.Builder builder, Object object, string? type) {
+        if (!(object is Gtk.Widget)) {
+            base.add_child (builder, object, type);
+            return;
+        }
+
+        insert_child_after ((Gtk.Widget) object, data_list);
+    }
+
+    [GtkCallback]
+    private void on_execute_button_clicked () {
+        results_list.delete_all_results ();
+        foreach (Result result in get_results ()) {
+            results_list.add_result (result);
+        }
+
+        results_list.visible = true;
+        results_list.grab_focus ();
     }
 }
