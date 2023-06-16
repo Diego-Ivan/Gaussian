@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GaussianBinomialPage" parent="GaussianPage">
+    <child>
+      <object class="AdwPreferencesGroup">
+        <child>
+          <object class="GaussianNumberRow" id="mean_row">
+            <property name="title">Mean</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -56,4 +56,22 @@ namespace Gaussian.MathUtils {
         }
         return sum;
     }
+
+    public double poisson_distribution (int x, int mean)
+        requires (x >= 0)
+        requires (mean > 0)
+    {
+        return (pow (mean, x) * pow (Math.E, -1 * mean) / factorial (x));
+    }
+
+    public double cumulative_poisson_distribution (int mean, int lower, int upper)
+        requires (lower < upper)
+        requires (lower >= 0)
+    {
+        double sum = 0;
+        for (int i = lower; i <= upper; i++) {
+            sum += poisson_distribution (i, mean);
+        }
+        return sum;
+    }
 }
