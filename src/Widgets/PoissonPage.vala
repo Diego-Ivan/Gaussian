@@ -7,7 +7,7 @@
 
 using Gaussian.MathUtils;
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/binomial-page.ui")]
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/poisson-page.ui")]
 public class Gaussian.PoissonPage : Gaussian.Page {
     [GtkChild]
     private unowned NumberRow mean_row;
@@ -33,6 +33,8 @@ public class Gaussian.PoissonPage : Gaussian.Page {
                 critical ("Unknown mode");
                 break;
         }
+
+        return result_array;
     }
 
     private Result equal_to_result () {

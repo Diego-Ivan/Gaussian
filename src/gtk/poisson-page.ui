@@ -2,7 +2,8 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
-  <template class="GaussianBinomialPage" parent="GaussianPage">
+  <template class="GaussianPoissonPage" parent="GaussianPage">
+    <property name="variable-type">discrete</property>
     <child>
       <object class="AdwPreferencesGroup">
         <child>

@@ -27,6 +27,7 @@ namespace Gaussian {
 
         static construct {
             typeof(BinomialPage).ensure ();
+            typeof(PoissonPage).ensure ();
         }
     }
 }
