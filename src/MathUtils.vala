@@ -74,4 +74,23 @@ namespace Gaussian.MathUtils {
         }
         return sum;
     }
+
+    public double geometric_distribution (double p, int n)
+        requires (p >= 0 && p <= 1)
+        requires (n >= 0)
+    {
+        double q = 1 - p;
+        return p * pow (q, n-1);
+    }
+
+    public double cumulative_geometric_distribution (int n, double p)
+        requires (p >= 0 && p <= 1)
+        requires (n >= 0)
+    {
+        return 1-(Math.pow (1-p, n));
+    }
+
+    public double geometric_distribution_over (int n, double p) {
+        return pow (1-p, n);
+    }
 }

@@ -75,6 +75,16 @@
                         </property>
                       </object>
                     </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">geometric</property>
+                        <property name="title">Geometric</property>
+                        <property name="child">
+                          <object class="GaussianGeometricPage"></object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

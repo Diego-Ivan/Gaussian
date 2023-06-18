@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GaussianGeometricPage" parent="GaussianPage">
+    <property name="variable-type">discrete</property>
+
+    <child>
+      <object class="AdwPreferencesGroup">
+        <child>
+          <object class="AdwSpinRow" id="p_row">
+            <property name="title">Probability of Success (p)</property>
+            <property name="digits">5</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">0</property>
+                <property name="upper">1</property>
+                <property name="value">0</property>
+                <property name="page-increment">0.1</property>
+                <property name="step-increment">0.01</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
