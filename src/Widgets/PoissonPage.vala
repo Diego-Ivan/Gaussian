@@ -10,7 +10,7 @@ using Gaussian.MathUtils;
 [GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/poisson-page.ui")]
 public class Gaussian.PoissonPage : Gaussian.Page {
     [GtkChild]
-    private unowned NumberRow mean_row;
+    private unowned Adw.SpinRow mean_row;
 
     public override GenericArray<Result> get_results () {
         unowned var discrete_mode = (DiscreteTypeMode) data_list.selected_mode;

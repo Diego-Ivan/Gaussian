@@ -10,11 +10,11 @@ public class Gaussian.DataList : Gtk.Box {
     [GtkChild]
     private unowned Adw.ComboRow mode_selection;
     [GtkChild]
-    private unowned NumberRow x_row;
+    private unowned Adw.SpinRow x_row;
     [GtkChild]
-    private unowned NumberRow inferior_row;
+    private unowned Adw.SpinRow inferior_row;
     [GtkChild]
-    private unowned NumberRow superior_row;
+    private unowned Adw.SpinRow superior_row;
     [GtkChild]
     private unowned Adw.ExpanderRow boundaries_expander;
 

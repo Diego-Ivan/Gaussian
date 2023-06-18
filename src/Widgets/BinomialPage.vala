@@ -11,9 +11,9 @@ using Math;
 [GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/binomial-page.ui")]
 public class Gaussian.BinomialPage : Gaussian.Page {
     [GtkChild]
-    private unowned NumberRow n_row;
+    private unowned Adw.SpinRow n_row;
     [GtkChild]
-    private unowned NumberRow p_row;
+    private unowned Adw.SpinRow p_row;
 
     public override GenericArray<Result> get_results () {
         unowned var discrete_mode = (DiscreteTypeMode) data_list.selected_mode;

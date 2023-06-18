@@ -7,8 +7,17 @@
     <child>
       <object class="AdwPreferencesGroup">
         <child>
-          <object class="GaussianNumberRow" id="mean_row">
+          <object class="AdwSpinRow" id="mean_row">
             <property name="title">Mean</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">0</property>
+                <property name="upper">100000</property>
+                <property name="value">0</property>
+                <property name="page-increment">10</property>
+                <property name="step-increment">1</property>
+              </object>
+            </property>
           </object>
         </child>
       </object>
