@@ -31,9 +31,15 @@ public class Gaussian.DataList : Gtk.Box {
         }
     }
 
-    public VariableTypeMode selected_mode {
+    public CumulativeMode selected_mode {
         get {
-            return (VariableTypeMode) mode_selection.selected_item;
+            return selected_model.mode;
+        }
+    }
+
+    private CumulativeModeModel selected_model {
+        get {
+            return (CumulativeModeModel) mode_selection.selected_item;
         }
     }
 
@@ -55,9 +61,13 @@ public class Gaussian.DataList : Gtk.Box {
         }
     }
 
+    static construct {
+        typeof (CumulativeModeModel).ensure ();
+    }
+
     [GtkCallback]
     private void on_mode_selection_changed () {
-        uses_boundaries = selected_mode.require_boundaries;
+        uses_boundaries = selected_model.requires_boundaries;
         boundaries_expander.expanded = uses_boundaries;
     }
 }

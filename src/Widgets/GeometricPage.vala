@@ -19,10 +19,9 @@ public class Gaussian.GeometricPage : Gaussian.Page {
     }
 
     public override GenericArray<Result> get_results () {
-        unowned var discrete_mode = (DiscreteTypeMode) data_list.selected_mode;
         var result_array = new GenericArray<Result> ();
 
-        switch (discrete_mode.mode) {
+        switch (data_list.selected_mode) {
             case UNDER_OR_EQUAL:
                 result_array.add (under_or_equal ());
                 break;
