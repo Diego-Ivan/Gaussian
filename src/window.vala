@@ -21,12 +21,21 @@
 namespace Gaussian {
     [GtkTemplate (ui = "/io/github/diegoivan/gaussian/window.ui")]
     public class Window : Adw.ApplicationWindow {
+        [GtkChild]
+        private unowned Adw.NavigationSplitView split_view;
+
         public Window (Gtk.Application app) {
             Object (application: app);
         }
 
         static construct {
             typeof(BinomialPage).ensure ();
+            typeof(PoissonPage).ensure ();
+        }
+
+        [GtkCallback]
+        private void on_visible_child_changed () {
+            split_view.show_content = true;
         }
     }
 }

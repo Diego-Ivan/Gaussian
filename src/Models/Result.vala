@@ -21,4 +21,11 @@
 public class Result : Object {
     public string name { get; set; default = ""; }
     public double @value { get; set; default = 0; }
+
+    public Result (string name = "", double value = 0) {
+        Object (
+            name: name,
+            @value: value
+        );
+    }
 }

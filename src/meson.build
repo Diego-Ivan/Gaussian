@@ -7,7 +7,7 @@ gaussian_sources = [
 
   'Widgets/BinomialPage.vala',
   'Widgets/Page.vala',
-  'Widgets/NumberRow.vala',
+  'Widgets/PoissonPage.vala',
   'Widgets/ResultsList.vala',
   'Widgets/DataList.vala',
 
