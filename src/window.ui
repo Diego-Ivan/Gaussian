@@ -5,12 +5,12 @@
   <template class="GaussianWindow" parent="AdwApplicationWindow">
     <property name="width-request">280</property>
     <property name="height-request">200</property>
-    <property name="default-width">800</property>
-    <property name="default-height">800</property>
+    <property name="default-width">700</property>
+    <property name="default-height">475</property>
 
     <child>
       <object class="AdwBreakpoint" id="width_breakpoint">
-        <condition>max-width: 400sp</condition>
+        <condition>max-width: 450sp</condition>
         <setter object="split_view" property="collapsed">true</setter>
       </object>
     </child>
@@ -24,7 +24,14 @@
             <property name="child">
               <object class="AdwToolbarView">
                 <child type="top">
-                  <object class="AdwHeaderBar"></object>
+                  <object class="AdwHeaderBar">
+                    <child type="end">
+                      <object class="GtkMenuButton">
+                        <property name="menu-model">primary_menu</property>
+                        <property name="icon-name">open-menu-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
                 </child>
 
                 <child>
@@ -48,6 +55,7 @@
 
                 <child>
                   <object class="GtkStack" id="view_stack">
+                    <signal name="notify::visible-child" handler="on_visible_child_changed"/>
                     <child>
                       <object class="GtkStackPage">
                         <property name="name">binomial</property>
