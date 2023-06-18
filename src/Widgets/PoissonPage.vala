@@ -17,10 +17,10 @@ public class Gaussian.PoissonPage : Gaussian.Page {
 
         switch (data_list.selected_mode) {
             case UNDER_OR_EQUAL:
-                // result_array.add (under_or_equal_result ());
+                result_array.add (under_or_equal ());
                 break;
             case BETWEEN:
-                // result_array.add (between_to_result ());
+                result_array.add (between ());
                 break;
             case EQUAL_TO:
                 result_array.add (equal_to_result ());
@@ -46,5 +46,13 @@ public class Gaussian.PoissonPage : Gaussian.Page {
         int mean = (int) mean_row.value;
 
         return new Result ("P(X≤x)", cumulative_poisson_distribution (mean, 0, data_list.x));
+    }
+
+    private Result between () {
+        int mean = (int) mean_row.value;
+        int lower = data_list.inferior_boundary;
+        int upper = data_list.superior_boundary;
+
+        return new Result ("P(I≤x≤X)", cumulative_poisson_distribution (mean, lower, upper));
     }
 }
