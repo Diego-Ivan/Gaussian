@@ -26,14 +26,28 @@ public class Gaussian.PoissonPage : Gaussian.Page {
                 result_array.add (equal_to_result ());
                 break;
             case OVER_OR_EQUAL:
-                // result_array.add (over_or_equal_result ());
+                result_array.add (over_or_equal ());
                 break;
             default:
                 critical ("Unknown mode");
                 break;
         }
 
+        foreach (Result result in descriptive_statistics()) {
+            result_array.add (result);
+        }
+
         return result_array;
+    }
+
+    private Result[] descriptive_statistics () {
+        Result[] array = {};
+        double mean = mean_row.value;
+
+        array += new Result ("Skewness", 1/Math.sqrt (mean));
+        array += new Result ("Kurtosis", 1/mean);
+
+        return array;
     }
 
     private Result equal_to_result () {
@@ -54,5 +68,12 @@ public class Gaussian.PoissonPage : Gaussian.Page {
         int upper = data_list.superior_boundary;
 
         return new Result ("P(I≤x≤X)", cumulative_poisson_distribution (mean, lower, upper));
+    }
+
+    private Result over_or_equal () {
+        int mean = (int) mean_row.value;
+        double result = 1 - cumulative_poisson_distribution (mean, 0, data_list.x - 1);
+
+        return new Result ("P(X≥x)", result);
     }
 }
