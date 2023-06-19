@@ -10,7 +10,7 @@ public enum Gaussian.VariableType {
     DISCRETE;
 }
 
-public enum Gaussian.DiscreteMode {
+public enum Gaussian.CumulativeMode {
     UNDER_OR_EQUAL,
     BETWEEN,
     OVER_OR_EQUAL,
@@ -25,25 +25,6 @@ public enum Gaussian.DiscreteMode {
             case EQUAL_TO:
                 return "x=";
             case OVER_OR_EQUAL:
-                return "x≥";
-            default:
-                assert_not_reached ();
-        }
-    }
-}
-
-public enum Gaussian.ContinuousMode {
-    UNDER,
-    BETWEEN,
-    OVER;
-
-    public string to_string () {
-        switch (this) {
-            case UNDER:
-                return "x≤";
-            case BETWEEN:
-                return "≤x≤";
-            case OVER:
                 return "x≥";
             default:
                 assert_not_reached ();

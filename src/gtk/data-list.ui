@@ -8,9 +8,9 @@
         <property name="title" translatable="yes">Successes</property>
         <child>
           <object class="AdwComboRow" id="mode_selection">
-            <property name="title" translatable="yes">Mode</property>
+            <property name="title" translatable="yes">Tail</property>
             <property name="expression">
-              <lookup type="GaussianVariableTypeMode" name="name"/>
+              <lookup type="GaussianCumulativeModeModel" name="name"/>
             </property>
             <signal name="notify::selected" handler="on_mode_selection_changed" swapped="no"/>
           </object>
