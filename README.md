@@ -5,9 +5,9 @@ Gaussian is a calculator for probability distribution, both continuous and discr
 ## Discrete
 
 - [x] Binomial
-- [ ] Poisson
-- [ ] Geometric
-- [ ] Hypergeometric
+- [x] Poisson
+- [x] Geometric
+- [x] Hypergeometric
 
 # Continuous
 
