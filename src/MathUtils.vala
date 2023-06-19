@@ -20,30 +20,14 @@
 
 using Math;
 namespace Gaussian.MathUtils {
-    public ulong factorial (int number)
+    public double factorial (int number)
         requires (number >= 0)
     {
-        ulong factorial = 1l;
+        double factorial = 1;
         for (int i = number; i > 0; i--) {
             factorial *= i;
         }
         return factorial;
-    }
-
-    // This is an inverse factorial function.
-    // If the number is over 15, it will be clamped to 15, as the difference may be insignificant
-    // Temporary solution
-    public double inverse_factorial (int number) {
-        if (number > 15) {
-            number = 15;
-        }
-
-        double result = 1;
-        for (int i = 2; i <= number; i++) {
-            result /= i;
-        }
-
-        return result;
     }
 
     /**
@@ -57,14 +41,13 @@ namespace Gaussian.MathUtils {
      * to go down to n = 1. Now that we have that number, we will calculate (n-k)! and divide
      * the previous product by the (n-k)!, in which we will use the factorial function above :)
      */
-    public ulong binomial_coefficient (int n, int k) {
-        ulong combinations = 1;
+    public double binomial_coefficient (int n, int k) {
+        double combinations = 1;
         for (int i = k+1; i<=n; i++) {
             combinations *= i;
         }
-        message (combinations.to_string ());
 
-        return (ulong) (combinations * inverse_factorial (n-k));
+        return (combinations / factorial (n-k));
     }
 
     public double binomial_distribution (int x, int n, double p)
@@ -97,7 +80,7 @@ namespace Gaussian.MathUtils {
         requires (x >= 0)
         requires (mean > 0)
     {
-        return (pow (mean, x) * pow (Math.E, -1 * mean) * inverse_factorial (x));
+        return (pow (mean, x) * pow (Math.E, -1 * mean) / factorial (x));
     }
 
     public double cumulative_poisson_distribution (int mean, int lower, int upper)
@@ -138,12 +121,10 @@ namespace Gaussian.MathUtils {
         requires (n <= size)
         requires (m <= size)
     {
-        ulong successes = binomial_coefficient (m, x);
-        message ((size-m).to_string ());
-        message ((n-x).to_string ());
-        ulong failures = binomial_coefficient (size - m, n - x);
+        double successes = binomial_coefficient (m, x);
+        double failures = binomial_coefficient (size - m, n - x);
 
-        return ((double) (successes * failures)) / (double) binomial_coefficient (size, n);
+        return  (successes * failures) / binomial_coefficient (size, n);
     }
 
     public double cumulative_hypergeometric_distribution (int n, int m, int size, int lower, int upper)
