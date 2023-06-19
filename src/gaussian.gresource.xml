@@ -6,6 +6,7 @@
     <file preprocess="xml-stripblanks">gtk/poisson-page.ui</file>
     <file preprocess="xml-stripblanks">gtk/geometric-page.ui</file>
     <file preprocess="xml-stripblanks">gtk/hypergeometric-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/normal-page.ui</file>
     <file preprocess="xml-stripblanks">gtk/page.ui</file>
     <file preprocess="xml-stripblanks">gtk/data-list.ui</file>
     <file preprocess="xml-stripblanks">gtk/results-list.ui</file>

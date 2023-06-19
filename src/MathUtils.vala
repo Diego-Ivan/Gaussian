@@ -20,6 +20,9 @@
 
 using Math;
 namespace Gaussian.MathUtils {
+    public const double INV_SQRT2 = 0.707106781187;
+    public const double INV_PI = 0.564189583548;
+
     public double factorial (int number)
         requires (number >= 0)
     {
@@ -31,10 +34,7 @@ namespace Gaussian.MathUtils {
     }
 
     /**
-     * This function calculates the binomial coefficient of two numbers.
-     * Nonetheless, it won't use the factorial () function. Pretty much because we are clamped
-     * to use very small numbers (under 15) that are still low numbers for a realistic number of
-     * tests.
+     * This function calculates the binomial coefficient of two numbers
      *
      * For this function, we will reduce the expression n!/x!, as x < n, we will divide x/n and
      * multiply that number by x-1/n-1 and so on, until n = 2, as it really doesn't make sense
@@ -140,5 +140,12 @@ namespace Gaussian.MathUtils {
             sum += hypergeometric_distribution (i, n, m, size);
         }
         return sum;
+    }
+
+    public double normal_distribution (int x, double dev, double mean)
+    {
+        double err = (x-mean) * INV_SQRT2 * 1/dev;
+
+        return 0.5 * (1+erf (err));
     }
 }

@@ -95,6 +95,16 @@
                         </property>
                       </object>
                     </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">normal</property>
+                        <property name="title">Normal</property>
+                        <property name="child">
+                          <object class="GaussianNormalPage"></object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
