@@ -17,16 +17,21 @@
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
+
 using Math;
 namespace Gaussian.MathUtils {
-    public long factorial (int number)
+    public ulong factorial (int number)
         requires (number >= 0)
     {
-        long factorial = 1l;
+        ulong factorial = 1l;
         for (int i = number; i > 0; i--) {
             factorial *= i;
         }
         return factorial;
+    }
+
+    public ulong binomial_coefficient (int n, int k) {
+        return factorial (n) / ((factorial (n-k) * factorial (k)));
     }
 
     public double binomial_distribution (int x, int n, double p)
@@ -92,5 +97,36 @@ namespace Gaussian.MathUtils {
 
     public double geometric_distribution_over (int n, double p) {
         return pow (1-p, n);
+    }
+
+    public double hypergeometric_distribution (int x, int n, int m, int size)
+        requires (x >= 0)
+        requires (x <= size)
+        requires (n >= 0)
+        requires (m >= 0)
+        requires (n <= size)
+        requires (m <= size)
+    {
+        ulong successes = binomial_coefficient (m, x);
+        message ((size-m).to_string ());
+        message ((n-x).to_string ());
+        ulong failures = binomial_coefficient (size - m, n - x);
+
+        return ((double) (successes * failures)) / (double) binomial_coefficient (size, n);
+    }
+
+    public double cumulative_hypergeometric_distribution (int n, int m, int size, int lower, int upper)
+        requires (n >= 0)
+        requires (m >= 0)
+        requires (n <= size)
+        requires (m <= size)
+        requires (lower >= 0)
+        requires (lower < upper)
+    {
+        double sum = 0;
+        for (int i = lower; i <= upper; i++) {
+            sum += hypergeometric_distribution (i, n, m, size);
+        }
+        return sum;
     }
 }

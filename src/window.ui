@@ -85,6 +85,16 @@
                         </property>
                       </object>
                     </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">hypergeometric</property>
+                        <property name="title">Hypergeometric</property>
+                        <property name="child">
+                          <object class="GaussianHypergeometricPage"></object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

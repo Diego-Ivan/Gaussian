@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GaussianHypergeometricPage" parent="GaussianPage">
+    <property name="variable-type">discrete</property>
+
+    <child>
+      <object class="AdwPreferencesGroup">
+        <child>
+          <object class="AdwSpinRow" id="n_row">
+            <property name="title">Number of Trials (n)</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">0</property>
+                <property name="upper">100000</property>
+                <property name="value">0</property>
+                <property name="page-increment">10</property>
+                <property name="step-increment">1</property>
+              </object>
+            </property>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwSpinRow" id="m_row">
+            <property name="title" translatable="yes">Number of successes in population (M)</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">0</property>
+                <property name="upper">100000</property>
+                <property name="value">0</property>
+                <property name="page-increment">10</property>
+                <property name="step-increment">1</property>
+              </object>
+            </property>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwSpinRow" id="population_row">
+            <property name="title" translatable="yes">Population Size (N)</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">0</property>
+                <property name="upper">100000</property>
+                <property name="value">0</property>
+                <property name="page-increment">10</property>
+                <property name="step-increment">1</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
