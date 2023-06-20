@@ -19,6 +19,21 @@ gaussian_sources = [
   'Models/DistributionTypes.vala',
 ]
 
+conf = configuration_data()
+conf.set_quoted('APP_ID', 'io.github.diegoivan.gaussian')
+conf.set_quoted('G_LOG_DOMAIN', 'Gaussian')
+conf.set_quoted('VERSION', meson.project_version())
+conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf.set_quoted('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
+conf.set_quoted('GNOMELOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+configure_file(output: 'config.h', configuration: conf)
+
+add_project_arguments(
+    '-include', 'config.h',
+    '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+    language: 'c'
+)
+
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: true)
 
@@ -34,6 +49,10 @@ gaussian_sources += gnome.compile_resources('gaussian-resources',
 )
 
 executable('gaussian', gaussian_sources,
+  vala_args: [
+    meson.project_source_root() + '/vapi/config.vapi',
+    '--vapidir='+join_paths(meson.project_source_root(), 'vapi')
+  ],
   dependencies: gaussian_deps,
        install: true,
 )
