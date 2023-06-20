@@ -105,6 +105,16 @@
                         </property>
                       </object>
                     </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">chisquared</property>
+                        <property name="title">Chi Squared</property>
+                        <property name="child">
+                          <object class="GaussianChiSquaredPage"></object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

@@ -148,4 +148,10 @@ namespace Gaussian.MathUtils {
 
         return 0.5 * (1+erf (err));
     }
+
+    public double chi_squared_distribution (int x, int df)
+        requires (df > 0)
+    {
+        return gammad (df*0.5, x * 0.5) / tgamma (df * 0.5);
+    }
 }
