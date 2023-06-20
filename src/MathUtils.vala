@@ -152,6 +152,8 @@ namespace Gaussian.MathUtils {
     public double chi_squared_distribution (int x, int df)
         requires (df > 0)
     {
-        return gammad (df*0.5, x * 0.5) / tgamma (df * 0.5);
+        int res_gamma;
+        double gamma = Calculus.gammad (x*0.5, df*0.5, out res_gamma);
+        return gamma;
     }
 }

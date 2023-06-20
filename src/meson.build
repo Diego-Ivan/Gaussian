@@ -17,6 +17,9 @@ gaussian_sources = [
 
   'Models/Result.vala',
   'Models/DistributionTypes.vala',
+
+  'Calculus/asa239.c',
+  'Calculus/Calculus.vapi',
 ]
 
 conf = configuration_data()
