@@ -5,7 +5,7 @@
 # include "asa239.h"
 
 /*
- * Original source: https://people.sc.fsu.edu/~jburkardt/c_src/asa239/asa239.h
+ * Original source: https://people.sc.fsu.edu/~jburkardt/c_src/asa239/asa239.c
  * Distributed under the GNU LGPL license.
  *
  * Original FORTRAN77 version by David Hill.

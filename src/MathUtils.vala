@@ -42,12 +42,7 @@ namespace Gaussian.MathUtils {
      * the previous product by the (n-k)!, in which we will use the factorial function above :)
      */
     public double binomial_coefficient (int n, int k) {
-        double combinations = 1;
-        for (int i = k+1; i<=n; i++) {
-            combinations *= i;
-        }
-
-        return (combinations / factorial (n-k));
+        return (falling_factorial (n, k) / factorial (n-k));
     }
 
     public double binomial_distribution (int x, int n, double p)
@@ -155,5 +150,13 @@ namespace Gaussian.MathUtils {
         int res_gamma;
         double gamma = Calculus.gammad (x*0.5, df*0.5, out res_gamma);
         return gamma;
+    }
+
+    public double falling_factorial (int m, int n) {
+        double product = 1;
+        for (int i = n+1; i <= m; i++) {
+            product*=i;
+        }
+        return product;
     }
 }
