@@ -7,6 +7,7 @@ gaussian_sources = [
 
   'Widgets/BinomialPage.vala',
   'Widgets/ChiSquaredPage.vala',
+  'Widgets/FDistributionPage.vala',
   'Widgets/GeometricPage.vala',
   'Widgets/HypergeometricPage.vala',
   'Widgets/NormalPage.vala',

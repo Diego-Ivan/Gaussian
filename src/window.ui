@@ -125,6 +125,16 @@
                         </property>
                       </object>
                     </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">f-distribution</property>
+                        <property name="title">F-distribution</property>
+                        <property name="child">
+                          <object class="GaussianFDistributionPage"></object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
