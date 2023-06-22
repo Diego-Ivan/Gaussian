@@ -11,7 +11,7 @@ Gaussian is a calculator for probability distribution, both continuous and discr
 
 # Continuous
 
-- [ ] Normal
-- [ ] Student's t-distribution
-- [ ] x^2
-- [ ] F distribution
+- [x] Normal
+- [x] Student's t-distribution
+- [x] x^2
+- [x] F distribution
