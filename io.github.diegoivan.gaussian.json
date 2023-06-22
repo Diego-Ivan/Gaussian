@@ -32,6 +32,18 @@
     ],
     "modules" : [
         {
+            "name" : "gsl",
+            "builddir" : false,
+            "buildsystem" : "autotools",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://git.savannah.gnu.org/git/gsl.git",
+                    "tag" : "release-2-7"
+                }
+            ]
+        },
+        {
             "name" : "gaussian",
             "builddir" : true,
             "buildsystem" : "meson",
