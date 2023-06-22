@@ -20,6 +20,8 @@ gaussian_sources = [
 
   'Calculus/asa239.c',
   'Calculus/Calculus.vapi',
+
+ 'config.vapi',
 ]
 
 conf = configuration_data()
@@ -43,6 +45,7 @@ math = cc.find_library('m', required: true)
 gaussian_deps = [
   dependency('gtk4'),
   dependency('libadwaita-1', version: '>= 1.2'),
+  dependency('gsl'),
   math,
 ]
 
@@ -52,10 +55,6 @@ gaussian_sources += gnome.compile_resources('gaussian-resources',
 )
 
 executable('gaussian', gaussian_sources,
-  vala_args: [
-    meson.project_source_root() + '/vapi/config.vapi',
-    '--vapidir='+join_paths(meson.project_source_root(), 'vapi')
-  ],
   dependencies: gaussian_deps,
        install: true,
 )
