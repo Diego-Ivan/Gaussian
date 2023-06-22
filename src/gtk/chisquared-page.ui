@@ -4,6 +4,7 @@
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianChiSquaredPage" parent="GaussianPage">
     <property name="variable-type">continuous</property>
+    <property name="x-support">real-positive</property>
 
     <child>
       <object class="AdwPreferencesGroup">

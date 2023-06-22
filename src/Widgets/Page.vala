@@ -25,6 +25,15 @@ public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
         }
     }
 
+    public Support x_support {
+        get {
+            return data_list.x_support;
+        }
+        set {
+            data_list.x_support = value;
+        }
+    }
+
     // Abstract Methods
     public abstract GenericArray<Result> get_results ();
 
