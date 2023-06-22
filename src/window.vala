@@ -35,6 +35,7 @@ namespace Gaussian {
             typeof(HypergeometricPage).ensure ();
             typeof(NormalPage).ensure ();
             typeof(ChiSquaredPage).ensure ();
+            typeof(StudentPage).ensure ();
         }
 
         [GtkCallback]

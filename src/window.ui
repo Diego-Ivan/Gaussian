@@ -115,6 +115,16 @@
                         </property>
                       </object>
                     </child>
+
+                    <child>
+                      <object class="GtkStackPage">
+                        <property name="name">student-t</property>
+                        <property name="title">Student's T</property>
+                        <property name="child">
+                          <object class="GaussianStudentPage"></object>
+                        </property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

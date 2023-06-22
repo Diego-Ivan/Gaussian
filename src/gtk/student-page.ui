@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GaussianStudentPage" parent="GaussianPage">
+    <property name="variable-type">continuous</property>
+    <child>
+      <object class="AdwPreferencesGroup">
+        <child>
+          <object class="AdwSpinRow" id="df_row">
+            <property name="title">Degrees of Freedom (df)</property>
+            <property name="digits">5</property>
+            <property name="adjustment">
+              <object class="GtkAdjustment">
+                <property name="lower">-100000</property>
+                <property name="upper">100000</property>
+                <property name="value">0</property>
+                <property name="page-increment">1</property>
+                <property name="step-increment">10</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
