@@ -27,6 +27,9 @@ public class Gaussian.DataList : Gtk.Box {
         }
         set {
             _variable_type = value;
+            if (variable_type == CONTINUOUS) {
+                x_support = NATURAL;
+            }
             mode_selection.model = new VariableTypeListModel (variable_type);
         }
     }
@@ -34,6 +37,50 @@ public class Gaussian.DataList : Gtk.Box {
     public CumulativeMode selected_mode {
         get {
             return selected_model.mode;
+        }
+    }
+
+    private Support _x_support;
+    public Support x_support {
+        get {
+            return _x_support;
+        }
+        set {
+            _x_support = value;
+            switch (x_support) {
+                case ALL_REAL:
+                    inferior_row.digits = 5;
+                    inferior_row.adjustment.lower = -1e8;
+
+                    superior_row.digits = 5;
+                    superior_row.adjustment.lower = -1e8;
+
+                    x_row.digits = 5;
+                    x_row.adjustment.lower = -1e8;
+                    break;
+
+                case NATURAL:
+                    inferior_row.digits = 0;
+                    inferior_row.adjustment.lower = 0;
+
+                    superior_row.digits = 0;
+                    superior_row.adjustment.lower = 0;
+
+                    x_row.digits = 0;
+                    x_row.adjustment.lower = 0;
+                    break;
+
+                case REAL_POSITIVE:
+                    inferior_row.digits = 5;
+                    inferior_row.adjustment.lower = 0;
+
+                    superior_row.digits = 5;
+                    superior_row.adjustment.lower = 0;
+
+                    x_row.digits = 5;
+                    x_row.adjustment.lower = 0;
+                    break;
+            }
         }
     }
 

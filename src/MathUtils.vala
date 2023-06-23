@@ -20,51 +20,29 @@
 
 using Math;
 namespace Gaussian.MathUtils {
-    public ulong factorial (int number)
+    public const double INV_SQRT2 = 0.707106781187;
+    public const double INV_PI = 0.564189583548;
+
+    public double factorial (int number)
         requires (number >= 0)
     {
-        ulong factorial = 1l;
+        double factorial = 1;
         for (int i = number; i > 0; i--) {
             factorial *= i;
         }
         return factorial;
     }
 
-    // This is an inverse factorial function.
-    // If the number is over 15, it will be clamped to 15, as the difference may be insignificant
-    // Temporary solution
-    public double inverse_factorial (int number) {
-        if (number > 15) {
-            number = 15;
-        }
-
-        double result = 1;
-        for (int i = 2; i <= number; i++) {
-            result /= i;
-        }
-
-        return result;
-    }
-
     /**
-     * This function calculates the binomial coefficient of two numbers.
-     * Nonetheless, it won't use the factorial () function. Pretty much because we are clamped
-     * to use very small numbers (under 15) that are still low numbers for a realistic number of
-     * tests.
+     * This function calculates the binomial coefficient of two numbers
      *
      * For this function, we will reduce the expression n!/x!, as x < n, we will divide x/n and
      * multiply that number by x-1/n-1 and so on, until n = 2, as it really doesn't make sense
      * to go down to n = 1. Now that we have that number, we will calculate (n-k)! and divide
      * the previous product by the (n-k)!, in which we will use the factorial function above :)
      */
-    public ulong binomial_coefficient (int n, int k) {
-        ulong combinations = 1;
-        for (int i = k+1; i<=n; i++) {
-            combinations *= i;
-        }
-        message (combinations.to_string ());
-
-        return (ulong) (combinations * inverse_factorial (n-k));
+    public double binomial_coefficient (int n, int k) {
+        return (falling_factorial (n, k) / factorial (n-k));
     }
 
     public double binomial_distribution (int x, int n, double p)
@@ -97,7 +75,7 @@ namespace Gaussian.MathUtils {
         requires (x >= 0)
         requires (mean > 0)
     {
-        return (pow (mean, x) * pow (Math.E, -1 * mean) * inverse_factorial (x));
+        return (pow (mean, x) * pow (Math.E, -1 * mean) / factorial (x));
     }
 
     public double cumulative_poisson_distribution (int mean, int lower, int upper)
@@ -138,12 +116,10 @@ namespace Gaussian.MathUtils {
         requires (n <= size)
         requires (m <= size)
     {
-        ulong successes = binomial_coefficient (m, x);
-        message ((size-m).to_string ());
-        message ((n-x).to_string ());
-        ulong failures = binomial_coefficient (size - m, n - x);
+        double successes = binomial_coefficient (m, x);
+        double failures = binomial_coefficient (size - m, n - x);
 
-        return ((double) (successes * failures)) / (double) binomial_coefficient (size, n);
+        return  (successes * failures) / binomial_coefficient (size, n);
     }
 
     public double cumulative_hypergeometric_distribution (int n, int m, int size, int lower, int upper)
@@ -159,5 +135,28 @@ namespace Gaussian.MathUtils {
             sum += hypergeometric_distribution (i, n, m, size);
         }
         return sum;
+    }
+
+    public double normal_distribution (int x, double dev, double mean)
+    {
+        double err = (x-mean) * INV_SQRT2 * 1/dev;
+
+        return 0.5 * (1+erf (err));
+    }
+
+    public double chi_squared_distribution (int x, int df)
+        requires (df > 0)
+    {
+        int res_gamma;
+        double gamma = Calculus.gammad (x*0.5, df*0.5, out res_gamma);
+        return gamma;
+    }
+
+    public double falling_factorial (int m, int n) {
+        double product = 1;
+        for (int i = n+1; i <= m; i++) {
+            product*=i;
+        }
+        return product;
     }
 }

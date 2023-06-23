@@ -33,6 +33,10 @@ namespace Gaussian {
             typeof(PoissonPage).ensure ();
             typeof(GeometricPage).ensure ();
             typeof(HypergeometricPage).ensure ();
+            typeof(NormalPage).ensure ();
+            typeof(ChiSquaredPage).ensure ();
+            typeof(StudentPage).ensure ();
+            typeof(FDistributionPage).ensure ();
         }
 
         [GtkCallback]

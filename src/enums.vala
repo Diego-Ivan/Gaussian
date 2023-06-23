@@ -31,3 +31,9 @@ public enum Gaussian.CumulativeMode {
         }
     }
 }
+
+public enum Gaussian.Support {
+    ALL_REAL,
+    NATURAL,
+    REAL_POSITIVE;
+}
