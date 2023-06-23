@@ -3,6 +3,7 @@
   <gresource prefix="/io/github/diegoivan/gaussian">
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/binomial-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/distribution-row.ui</file>
     <file preprocess="xml-stripblanks">gtk/poisson-page.ui</file>
     <file preprocess="xml-stripblanks">gtk/fdistribution-page.ui</file>
     <file preprocess="xml-stripblanks">gtk/geometric-page.ui</file>

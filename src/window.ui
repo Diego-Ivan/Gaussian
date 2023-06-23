@@ -34,8 +34,10 @@
                 </child>
 
                 <child>
-                  <object class="GtkStackSidebar">
-                    <property name="stack">view_stack</property>
+                  <object class="GtkListBox">
+                    <child>
+                      <object class="GaussianDistributionRow"></object>
+                    </child>
                   </object>
                 </child>
               </object>

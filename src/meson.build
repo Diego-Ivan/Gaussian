@@ -5,6 +5,8 @@ gaussian_sources = [
   'window.vala',
   'MathUtils.vala',
 
+  'Widgets/DistributionRow.vala',
+
   'Widgets/BinomialPage.vala',
   'Widgets/ChiSquaredPage.vala',
   'Widgets/FDistributionPage.vala',

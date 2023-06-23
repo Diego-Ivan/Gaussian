@@ -39,6 +39,7 @@ namespace Gaussian {
             typeof(ChiSquaredPage).ensure ();
             typeof(StudentPage).ensure ();
             typeof(FDistributionPage).ensure ();
+            typeof(DistributionRow).ensure ();
         }
 
         [GtkCallback]
