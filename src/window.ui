@@ -11,13 +11,12 @@
     <child>
       <object class="AdwBreakpoint" id="width_breakpoint">
         <condition>max-width: 450sp</condition>
-        <setter object="split_view" property="collapsed">true</setter>
       </object>
     </child>
 
     <property name="content">
-      <object class="AdwNavigationSplitView" id="split_view">
-        <property name="sidebar">
+      <object class="AdwNavigationView" id="navigation_view">
+        <child>
           <object class="AdwNavigationPage">
             <property name="title" translatable="yes">Distributions</property>
 
@@ -42,15 +41,22 @@
               </object>
             </property>
           </object>
-        </property>
+        </child>
 
-        <property name="content">
+        <child>
           <object class="AdwNavigationPage">
+            <property name="tag">distribution_view</property>
 
             <property name="child">
               <object class="AdwToolbarView">
                 <child type="top">
-                  <object class="AdwHeaderBar"></object>
+                  <object class="AdwHeaderBar" id="dist_headerbar">
+                    <child type="title">
+                      <object class="AdwWindowTitle" id="distribution_title">
+                        <property name="title"></property>
+                      </object>
+                    </child>
+                  </object>
                 </child>
 
                 <child>
@@ -141,7 +147,8 @@
 
             </property>
           </object>
-        </property>
+        </child>
+
       </object>
     </property>
   </template>

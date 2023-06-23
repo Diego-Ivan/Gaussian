@@ -22,7 +22,9 @@ namespace Gaussian {
     [GtkTemplate (ui = "/io/github/diegoivan/gaussian/window.ui")]
     public class Window : Adw.ApplicationWindow {
         [GtkChild]
-        private unowned Adw.NavigationSplitView split_view;
+        private unowned Adw.NavigationView navigation_view;
+        [GtkChild]
+        private unowned Adw.WindowTitle distribution_title;
 
         public Window (Gtk.Application app) {
             Object (application: app);
@@ -40,8 +42,12 @@ namespace Gaussian {
         }
 
         [GtkCallback]
-        private void on_visible_child_changed () {
-            split_view.show_content = true;
+        private void on_visible_child_changed (Object emitter, ParamSpec pspec) {
+            var stack = (Gtk.Stack) emitter;
+            Gtk.StackPage stack_page = stack.get_page (stack.visible_child);
+            distribution_title.title = stack_page.title;
+
+            navigation_view.push_by_tag ("distribution_view");
         }
     }
 }
