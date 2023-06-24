@@ -4,6 +4,7 @@
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianStudentPage" parent="GaussianPage">
     <property name="title" translatable="yes">Student's T</property>
+    <property name="description" translatable="yes">Probability distribution that generalizes the standard normal distribution. Widely used in statistical analyses.</property>
     <property name="tag">studentst</property>
     <property name="variable-type">continuous</property>
     <property name="x-support">all-real</property>

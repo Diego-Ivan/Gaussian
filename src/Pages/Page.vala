@@ -36,6 +36,7 @@ public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
 
     public string title { get; set; default = ""; }
     public string tag { get; set; default = ""; }
+    public string description { get; set; default = ""; }
     public string icon_name { get; set; default = ""; }
 
     // Abstract Methods

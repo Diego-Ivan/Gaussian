@@ -4,6 +4,7 @@
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianFDistributionPage" parent="GaussianPage">
     <property name="title" translatable="yes">F-Distribution</property>
+    <property name="description" translatable="yes">Null distribution of a test statistic. Notably, the analysis of variance and other F-tests.</property>
     <property name="tag">f-distribution</property>
     <property name="variable-type">continuous</property>
     <property name="x-support">real-positive</property>

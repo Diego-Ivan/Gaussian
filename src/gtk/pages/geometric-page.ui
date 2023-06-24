@@ -4,6 +4,7 @@
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianGeometricPage" parent="GaussianPage">
     <property name="title" translatable="yes">Geometric</property>
+    <property name="description" translatable="yes">Probability distribution of the number of x Bernoulli Trials to get one success.</property>
     <property name="tag">geometric</property>
     <property name="variable-type">discrete</property>
 

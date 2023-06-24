@@ -36,6 +36,8 @@ public class Gaussian.DistributionRow : Gtk.ListBoxRow {
             _navigation_page = value;
 
             navigation_page.bind_property ("title", distribution_label, "label", SYNC_CREATE);
+            navigation_page.bind_property ("description", description_label, "label", SYNC_CREATE);
+            navigation_page.bind_property ("icon-name", distribution_symbolic, "icon-name", SYNC_CREATE);
         }
     }
 

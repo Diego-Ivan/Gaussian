@@ -4,6 +4,7 @@
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianBinomialPage" parent="GaussianPage">
     <property name="title" translatable="yes">Binomial</property>
+    <property name="description" translatable="yes">Probability distribution of n independent Bernoulli Trials, with valued possible outcomes: success (p) and failure (q=1-p)</property>
     <property name="tag">binomial</property>
     <property name="variable-type">discrete</property>
 
