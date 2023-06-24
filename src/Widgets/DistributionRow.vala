@@ -27,30 +27,19 @@ public class Gaussian.DistributionRow : Gtk.ListBoxRow {
     [GtkChild]
     private unowned Gtk.Label description_label;
 
-    public string tag {
+    private unowned Page _navigation_page;
+    public unowned Page navigation_page {
         get {
-            return distribution_label.label;
+            return _navigation_page;
         }
         set {
-            distribution_label.label = value;
+            _navigation_page = value;
+
+            navigation_page.bind_property ("title", distribution_label, "label", SYNC_CREATE);
         }
     }
 
-    public string description {
-        get {
-            return description_label.label;
-        }
-        set {
-            description_label.label = value;
-        }
-    }
-
-    public string icon_name {
-        owned get {
-            return distribution_symbolic.icon_name;
-        }
-        set {
-            distribution_symbolic.icon_name = value;
-        }
+    public DistributionRow (Page navigation_page) {
+        Object (navigation_page: navigation_page);
     }
 }

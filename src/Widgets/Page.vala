@@ -6,7 +6,7 @@
  */
 
 [GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/page.ui")]
-public abstract class Gaussian.Page : Adw.NavigationPage, Gtk.Buildable {
+public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
     [GtkChild]
     private unowned ResultsList results_list;
     [GtkChild]
@@ -33,6 +33,10 @@ public abstract class Gaussian.Page : Adw.NavigationPage, Gtk.Buildable {
             data_list.x_support = value;
         }
     }
+
+    public string title { get; set; default = ""; }
+    public string tag { get; set; default = ""; }
+    public string icon_name { get; set; default = ""; }
 
     // Abstract Methods
     public abstract GenericArray<Result> get_results ();
