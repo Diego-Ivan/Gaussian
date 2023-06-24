@@ -2,19 +2,23 @@
 <gresources>
   <gresource prefix="/io/github/diegoivan/gaussian">
     <file preprocess="xml-stripblanks">window.ui</file>
-    <file preprocess="xml-stripblanks">gtk/binomial-page.ui</file>
+
+    <!-- Pages -->
+    <file preprocess="xml-stripblanks">gtk/pages/binomial-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/chisquared-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/fdistribution-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/geometric-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/hypergeometric-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/normal-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/poisson-page.ui</file>
+    <file preprocess="xml-stripblanks">gtk/pages/student-page.ui</file>
+
+    <!-- Widgets -->
     <file preprocess="xml-stripblanks">gtk/distribution-row.ui</file>
     <file preprocess="xml-stripblanks">gtk/navigation-switcher.ui</file>
-    <file preprocess="xml-stripblanks">gtk/poisson-page.ui</file>
-    <file preprocess="xml-stripblanks">gtk/fdistribution-page.ui</file>
-    <file preprocess="xml-stripblanks">gtk/geometric-page.ui</file>
-    <file preprocess="xml-stripblanks">gtk/hypergeometric-page.ui</file>
-    <file preprocess="xml-stripblanks">gtk/normal-page.ui</file>
-    <file preprocess="xml-stripblanks">gtk/chisquared-page.ui</file>
-    <file preprocess="xml-stripblanks">gtk/page.ui</file>
     <file preprocess="xml-stripblanks">gtk/data-list.ui</file>
     <file preprocess="xml-stripblanks">gtk/results-list.ui</file>
-    <file preprocess="xml-stripblanks">gtk/student-page.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
   </gresource>
 

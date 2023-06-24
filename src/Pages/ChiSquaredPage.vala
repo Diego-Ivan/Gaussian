@@ -1,4 +1,4 @@
-/* StudentPage.vala
+/* ChiSquaredPage.vala
  *
  * Copyright 2023 Diego Iván <diegoivan.mae@gmail.com>
  *
@@ -18,16 +18,16 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-using Gsl.CDF;
+using Gaussian.MathUtils;
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/student-page.ui")]
-public class Gaussian.StudentPage : Gaussian.Page {
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/pages/chisquared-page.ui")]
+public class Gaussian.ChiSquaredPage : Gaussian.Page {
     [GtkChild]
     private unowned Adw.SpinRow df_row;
 
-    private double df {
+    private int df {
         get {
-            return df_row.value;
+            return (int) df_row.value;
         }
     }
 
@@ -39,10 +39,10 @@ public class Gaussian.StudentPage : Gaussian.Page {
                 result_array.add (under_or_equal ());
                 break;
             case BETWEEN:
-                result_array.add (between ());
+                // result_array.add (between ());
                 break;
             case OVER_OR_EQUAL:
-                result_array.add (over_or_equal ());
+                // result_array.add (over_or_equal ());
                 break;
             case EQUAL_TO:
             default:
@@ -53,19 +53,7 @@ public class Gaussian.StudentPage : Gaussian.Page {
         return result_array;
     }
 
-    private Result under_or_equal () {
-        return new Result ("P(X≤x)", tdist_P (data_list.x, df));
-    }
-
-    private Result between () {
-        double lower = data_list.inferior_boundary;
-        double upper = data_list.superior_boundary;
-        double result = tdist_P (upper, df) - tdist_P (lower, df);
-
-        return new Result ("P(I≤x≤X)", result);
-    }
-
-    private Result over_or_equal () {
-        return new Result ("P(X≥x)", 1 - tdist_P (data_list.x, df));
+    public Result under_or_equal () {
+        return new Result ("P(X≤x)", chi_squared_distribution (data_list.x, df));
     }
 }

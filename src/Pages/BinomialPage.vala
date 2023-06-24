@@ -8,7 +8,7 @@
 using Gaussian.MathUtils;
 using Math;
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/binomial-page.ui")]
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/pages/binomial-page.ui")]
 public class Gaussian.BinomialPage : Gaussian.Page {
     [GtkChild]
     private unowned Adw.SpinRow n_row;

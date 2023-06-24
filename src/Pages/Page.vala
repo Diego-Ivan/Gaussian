@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/page.ui")]
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/pages/page.ui")]
 public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
     [GtkChild]
     private unowned ResultsList results_list;

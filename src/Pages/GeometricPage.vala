@@ -7,7 +7,7 @@
 
 using Gaussian.MathUtils;
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/geometric-page.ui")]
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/pages/geometric-page.ui")]
 public class Gaussian.GeometricPage : Gaussian.Page {
     [GtkChild]
     private unowned Adw.SpinRow p_row;
