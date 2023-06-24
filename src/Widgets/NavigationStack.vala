@@ -8,6 +8,8 @@
 public class Gaussian.NavigationStack : Adw.Bin {
     private Gtk.Stack view_stack = new Gtk.Stack ();
 
+    public signal void page_selected ();
+
     private ListStore pages_list_store = new ListStore (typeof (Page));
     public ListModel pages_model {
         get {
@@ -15,12 +17,10 @@ public class Gaussian.NavigationStack : Adw.Bin {
         }
     }
 
+    [CCode (notify=false)]
     public Page visible_page {
         get {
             return (Page) view_stack.visible_child;
-        }
-        set {
-            view_stack.visible_child = value;
         }
     }
 
@@ -29,10 +29,19 @@ public class Gaussian.NavigationStack : Adw.Bin {
         add_page (new ChiSquaredPage ());
         add_page (new FDistributionPage ());
         add_page (new GeometricPage ());
-        add_page (new HyperGeometricPage ());
+        add_page (new HypergeometricPage ());
         add_page (new NormalPage ());
         add_page (new PoissonPage ());
         add_page (new StudentPage ());
+
+        child = view_stack;
+    }
+
+    public void change_visible_page (Page page, bool navigate = true) {
+        view_stack.visible_child = page;
+        if (navigate) {
+            page_selected ();
+        }
     }
 
     private void add_page (Page page) {

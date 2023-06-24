@@ -34,7 +34,7 @@
               <object class="GtkLabel" id="description_label">
                 <property name="margin-bottom">12</property>
                 <property name="wrap">true</property>
-                <property name="user-markup">true</property>
+                <property name="use-markup">true</property>
                 <property name="xalign">0</property>
                 <style>
                   <class name="dim-label"/>

@@ -8,12 +8,6 @@
     <property name="default-width">700</property>
     <property name="default-height">475</property>
 
-    <child>
-      <object class="AdwBreakpoint" id="width_breakpoint">
-        <condition>max-width: 450sp</condition>
-      </object>
-    </child>
-
     <property name="content">
       <object class="AdwNavigationView" id="navigation_view">
         <child>
@@ -34,10 +28,9 @@
                 </child>
 
                 <child>
-                  <object class="GtkListBox">
-                    <child>
-                      <object class="GaussianDistributionRow"></object>
-                    </child>
+                  <object class="GaussianNavigationSwitcher" id="navigation_switcher">
+                    <property name="enable-navigation">false</property>
+                    <property name="navigation-stack">navigation_stack</property>
                   </object>
                 </child>
               </object>
@@ -62,87 +55,8 @@
                 </child>
 
                 <child>
-                  <object class="GtkStack" id="view_stack">
-                    <signal name="notify::visible-child" handler="on_visible_child_changed"/>
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">binomial</property>
-                        <property name="title">Binomial</property>
-                        <property name="child">
-                          <object class="GaussianBinomialPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">poisson</property>
-                        <property name="title">Poisson</property>
-                        <property name="child">
-                          <object class="GaussianPoissonPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">geometric</property>
-                        <property name="title">Geometric</property>
-                        <property name="child">
-                          <object class="GaussianGeometricPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">hypergeometric</property>
-                        <property name="title">Hypergeometric</property>
-                        <property name="child">
-                          <object class="GaussianHypergeometricPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">normal</property>
-                        <property name="title">Normal</property>
-                        <property name="child">
-                          <object class="GaussianNormalPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">chisquared</property>
-                        <property name="title">Chi Squared</property>
-                        <property name="child">
-                          <object class="GaussianChiSquaredPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">student-t</property>
-                        <property name="title">Student's T</property>
-                        <property name="child">
-                          <object class="GaussianStudentPage"></object>
-                        </property>
-                      </object>
-                    </child>
-
-                    <child>
-                      <object class="GtkStackPage">
-                        <property name="name">f-distribution</property>
-                        <property name="title">F-distribution</property>
-                        <property name="child">
-                          <object class="GaussianFDistributionPage"></object>
-                        </property>
-                      </object>
-                    </child>
+                  <object class="GaussianNavigationStack" id="navigation_stack">
+                    <signal name="page-selected" handler="on_page_selected"/>
                   </object>
                 </child>
               </object>

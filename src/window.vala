@@ -31,24 +31,14 @@ namespace Gaussian {
         }
 
         static construct {
-            typeof(BinomialPage).ensure ();
-            typeof(PoissonPage).ensure ();
-            typeof(GeometricPage).ensure ();
-            typeof(HypergeometricPage).ensure ();
-            typeof(NormalPage).ensure ();
-            typeof(ChiSquaredPage).ensure ();
-            typeof(StudentPage).ensure ();
-            typeof(FDistributionPage).ensure ();
-            typeof(DistributionRow).ensure ();
+            typeof(NavigationStack).ensure ();
+            typeof(NavigationSwitcher).ensure ();
         }
 
         [GtkCallback]
-        private void on_visible_child_changed (Object emitter, ParamSpec pspec) {
-            var stack = (Gtk.Stack) emitter;
-            Gtk.StackPage stack_page = stack.get_page (stack.visible_child);
-            distribution_title.title = stack_page.title;
-
+        private void on_page_selected (NavigationStack stack) {
             navigation_view.push_by_tag ("distribution_view");
+            distribution_title.title = stack.visible_page.title;
         }
     }
 }
