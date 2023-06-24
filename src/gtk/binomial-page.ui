@@ -3,6 +3,8 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianBinomialPage" parent="GaussianPage">
+    <property name="title" translatable="yes">Binomial</property>
+    <property name="tag">binomial</property>
     <property name="variable-type">discrete</property>
 
     <child>

@@ -3,6 +3,8 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianChiSquaredPage" parent="GaussianPage">
+    <property name="title" translatable="yes">Chi Squared</property>
+    <property name="tag">chi-squared</property>
     <property name="variable-type">continuous</property>
     <property name="x-support">real-positive</property>
 

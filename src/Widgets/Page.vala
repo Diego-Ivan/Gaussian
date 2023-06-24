@@ -6,7 +6,7 @@
  */
 
 [GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/page.ui")]
-public abstract class Gaussian.Page : Adw.Bin, Gtk.Buildable {
+public abstract class Gaussian.Page : Adw.NavigationPage, Gtk.Buildable {
     [GtkChild]
     private unowned ResultsList results_list;
     [GtkChild]
