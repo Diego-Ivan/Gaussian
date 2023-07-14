@@ -24,5 +24,6 @@
 
   <gresource prefix="/io/github/diegoivan/gaussian/icons/scalable/actions/">
     <file preprocess="xml-stripblanks" alias="copy-symbolic.svg">gtk/icons/copy-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="binomial-distribution-symbolic.svg">gtk/icons/binomial-distribution-symbolic.svg</file>
   </gresource>
 </gresources>
