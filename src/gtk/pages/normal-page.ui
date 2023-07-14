@@ -8,6 +8,7 @@
     <property name="tag">normal</property>
     <property name="variable-type">continuous</property>
     <property name="x-support">all-real</property>
+    <property name="icon-name">normal-distribution-symbolic</property>
 
     <child>
       <object class="AdwPreferencesGroup">
