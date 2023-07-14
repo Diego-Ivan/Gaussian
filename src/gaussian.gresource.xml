@@ -27,5 +27,6 @@
     <file preprocess="xml-stripblanks" alias="binomial-distribution-symbolic.svg">gtk/icons/binomial-distribution-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="geometric-distribution-symbolic.svg">gtk/icons/geometric-distribution-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="normal-distribution-symbolic.svg">gtk/icons/normal-distribution-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="poisson-distribution-symbolic.svg">gtk/icons/poisson-distribution-symbolic.svg</file>
   </gresource>
 </gresources>
