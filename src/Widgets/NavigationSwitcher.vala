@@ -12,8 +12,6 @@ public class Gaussian.NavigationSwitcher : Adw.Bin {
     [GtkChild]
     private unowned Gtk.ListBox continuous_listbox;
 
-    public bool enable_navigation { get; set; default = false; }
-
     private unowned NavigationStack _navigation_stack;
     public unowned NavigationStack navigation_stack {
         get {
@@ -37,12 +35,11 @@ public class Gaussian.NavigationSwitcher : Adw.Bin {
     [GtkCallback]
     private void on_row_selected (Gtk.ListBoxRow row) {
         var distribution_row = (DistributionRow) row;
-        navigation_stack.change_visible_page (distribution_row.navigation_page, enable_navigation);
+        navigation_stack.change_visible_page (distribution_row.navigation_page);
 
         discrete_listbox.unselect_all ();
         continuous_listbox.unselect_all ();
 
         distribution_row.grab_focus ();
-        enable_navigation = true;
     }
 }

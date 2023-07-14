@@ -29,7 +29,6 @@
 
                 <child>
                   <object class="GaussianNavigationSwitcher" id="navigation_switcher">
-                    <property name="enable-navigation">false</property>
                     <property name="navigation-stack">navigation_stack</property>
                   </object>
                 </child>

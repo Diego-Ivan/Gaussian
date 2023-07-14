@@ -37,11 +37,9 @@ public class Gaussian.NavigationStack : Adw.Bin {
         child = view_stack;
     }
 
-    public void change_visible_page (Page page, bool navigate = true) {
+    public void change_visible_page (Page page) {
         view_stack.visible_child = page;
-        if (navigate) {
-            page_selected ();
-        }
+        page_selected ();
     }
 
     private void add_page (Page page) {

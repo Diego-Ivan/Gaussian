@@ -33,6 +33,7 @@
                 <child>
                   <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Continuous</property>
+                    <property name="margin-bottom" >24</property>
                     <child>
                       <object class="GtkListBox" id="continuous_listbox">
                         <property name="selection-mode">none</property>
