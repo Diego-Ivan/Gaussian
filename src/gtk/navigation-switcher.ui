@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="GaussianNavigationSwitcher" parent="AdwBin">
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="propagate-natural-height">true</property>
+        <property name="propagate-natural-width">true</property>
+
+        <child>
+          <object class="AdwClamp">
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="spacing">24</property>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Discrete</property>
+                    <child>
+                      <object class="GtkListBox" id="discrete_listbox">
+                        <property name="selection-mode">none</property>
+                        <signal name="row-activated" handler="on_row_selected" swapped="no"/>
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Continuous</property>
+                    <property name="margin-bottom" >24</property>
+                    <child>
+                      <object class="GtkListBox" id="continuous_listbox">
+                        <property name="selection-mode">none</property>
+                        <signal name="row-activated" handler="on_row_selected" swapped="no"/>
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </template>
+</interface>

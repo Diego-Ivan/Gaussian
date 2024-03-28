@@ -22,26 +22,23 @@ namespace Gaussian {
     [GtkTemplate (ui = "/io/github/diegoivan/gaussian/window.ui")]
     public class Window : Adw.ApplicationWindow {
         [GtkChild]
-        private unowned Adw.NavigationSplitView split_view;
+        private unowned Adw.NavigationView navigation_view;
+        [GtkChild]
+        private unowned Adw.WindowTitle distribution_title;
 
         public Window (Gtk.Application app) {
             Object (application: app);
         }
 
         static construct {
-            typeof(BinomialPage).ensure ();
-            typeof(PoissonPage).ensure ();
-            typeof(GeometricPage).ensure ();
-            typeof(HypergeometricPage).ensure ();
-            typeof(NormalPage).ensure ();
-            typeof(ChiSquaredPage).ensure ();
-            typeof(StudentPage).ensure ();
-            typeof(FDistributionPage).ensure ();
+            typeof(NavigationStack).ensure ();
+            typeof(NavigationSwitcher).ensure ();
         }
 
         [GtkCallback]
-        private void on_visible_child_changed () {
-            split_view.show_content = true;
+        private void on_page_selected (NavigationStack stack) {
+            navigation_view.push_by_tag ("distribution_view");
+            distribution_title.title = stack.visible_page.title;
         }
     }
 }

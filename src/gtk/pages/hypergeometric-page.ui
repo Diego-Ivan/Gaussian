@@ -3,6 +3,9 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianHypergeometricPage" parent="GaussianPage">
+    <property name="title" translatable="yes">Hypergeometric</property>
+    <property name="description" translatable="yes">Describes the probabilty of x successes in n draws without replacements.</property>
+    <property name="tag">hypergeometric</property>
     <property name="variable-type">discrete</property>
 
     <child>

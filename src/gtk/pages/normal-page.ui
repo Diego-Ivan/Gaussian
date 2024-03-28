@@ -3,8 +3,12 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianNormalPage" parent="GaussianPage">
+    <property name="title" translatable="yes">Normal</property>
+    <property name="description" translatable="yes">Probability distribution for a real-valued random variables. Commonly used for random variables whose distributions are not known.</property>
+    <property name="tag">normal</property>
     <property name="variable-type">continuous</property>
     <property name="x-support">all-real</property>
+    <property name="icon-name">normal-distribution-symbolic</property>
 
     <child>
       <object class="AdwPreferencesGroup">

@@ -20,7 +20,7 @@
 
 using Gsl.CDF;
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/fdistribution-page.ui")]
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/pages/fdistribution-page.ui")]
 public class Gaussian.FDistributionPage : Gaussian.Page {
     [GtkChild]
     private unowned Adw.SpinRow df1_row;

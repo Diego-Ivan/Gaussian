@@ -3,7 +3,11 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="GaussianPoissonPage" parent="GaussianPage">
+    <property name="title" translatable="yes">Poisson</property>
+    <property name="description" translatable="yes">Probability distribution of x events ocurring in a interval of time or space, with constant mean rate.</property>
+    <property name="tag">poisson</property>
     <property name="variable-type">discrete</property>
+    <property name="icon-name">poisson-distribution-symbolic</property>
     <child>
       <object class="AdwPreferencesGroup">
         <child>

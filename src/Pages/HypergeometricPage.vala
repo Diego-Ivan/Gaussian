@@ -7,7 +7,7 @@
 
 using Gaussian.MathUtils;
 
-[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/hypergeometric-page.ui")]
+[GtkTemplate (ui = "/io/github/diegoivan/gaussian/gtk/pages/hypergeometric-page.ui")]
 public class Gaussian.HypergeometricPage : Gaussian.Page {
     [GtkChild]
     private unowned Adw.SpinRow n_row;
