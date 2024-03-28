@@ -8,6 +8,7 @@
     <property name="tag">chi-squared</property>
     <property name="variable-type">continuous</property>
     <property name="x-support">real-positive</property>
+    <property name="icon-name">chi-squared-distribution-symbolic</property>
 
     <child>
       <object class="AdwPreferencesGroup">
